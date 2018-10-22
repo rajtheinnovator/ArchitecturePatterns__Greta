@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ArchitecturePatterns</string>
+    <string name="mvp_example">MVP Example</string>
+    <string name="action_settings">Settings</string>
+    <string name="mvp_without_rx_and_dagger_example">MVP without RxJava and Dagger</string>
+    <string name="mvvm_example">MVVM Example</string>
+    <string name="mvp_finished_example">Finished MVP example</string>
+    <string name="transaction_header">transactionHeader</string>
+</resources>
