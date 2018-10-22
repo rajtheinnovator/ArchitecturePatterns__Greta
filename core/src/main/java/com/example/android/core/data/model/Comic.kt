@@ -4,7 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
-import java.util.ArrayList
+import java.util.*
 
 /**
  * Created by Greta Grigutė on 2018-10-17.
@@ -12,7 +12,7 @@ import java.util.ArrayList
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Comic: Parcelable {
+class Comic : Parcelable {
 
  @JsonProperty("id")
  var id:Int? = null
@@ -47,10 +47,8 @@ class Comic: Parcelable {
  val imageUrlList: ArrayList<String>
   get() {
    val results = ArrayList<String>()
-   if (imageList != null)
-   {
-    for (i in imageList!!.indices)
-    {
+   if (imageList != null) {
+    for (i in imageList!!.indices) {
      results.add(getImageUrl(i))
     }
    }
@@ -66,12 +64,12 @@ class Comic: Parcelable {
  }
 
 
- override fun describeContents():Int {
+ override fun describeContents(): Int {
   return 0
  }
 
 
- override fun equals(o:Any?):Boolean {
+ override fun equals(o: Any?): Boolean {
   if (this === o) return true
   if (o !is Comic) return false
   val comic = o as Comic?
@@ -82,13 +80,13 @@ class Comic: Parcelable {
 
  }
 
- override fun hashCode():Int {
+ override fun hashCode(): Int {
   var result = if (id != null) id!!.hashCode() else 0
   result = 31 * result + if (type != null) type!!.hashCode() else 0
   return result
  }
 
- override fun writeToParcel(dest: Parcel, flags:Int) {
+ override fun writeToParcel(dest: Parcel, flags: Int) {
   dest.writeValue(this.id)
   dest.writeString(this.title)
   dest.writeString(this.resourceUri)
@@ -106,13 +104,12 @@ class Comic: Parcelable {
 
  companion object {
 
-  @JvmField
-  val CREATOR: Parcelable.Creator<Comic> = object: Parcelable.Creator<Comic> {
-   override fun createFromParcel(source: Parcel):Comic {
+  val CREATOR: Parcelable.Creator<Comic> = object : Parcelable.Creator<Comic> {
+   override fun createFromParcel(source: Parcel): Comic {
     return Comic(source)
    }
 
-   override fun newArray(size:Int):Array<Comic?> {
+   override fun newArray(size: Int): Array<Comic?> {
     return arrayOfNulls(size)
    }
   }

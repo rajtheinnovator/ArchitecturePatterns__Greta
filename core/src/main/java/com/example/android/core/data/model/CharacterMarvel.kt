@@ -7,6 +7,10 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.util.*
 
 /**
+ * Created by Greta Grigutė on 2018-10-17.
+ */
+
+/**
  * Model for Marvel character
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
